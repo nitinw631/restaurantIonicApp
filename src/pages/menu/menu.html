@@ -1,0 +1,20 @@
+<ion-content>
+  <div class="top-div">
+    <button ion-button menuToggle color="theme">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <img src="assets/img/gallery/9.jpg" class="header-image">
+    <div class="shadow"></div>
+  </div>
+  <h3 text-center>Menu</h3>
+  <ion-grid>
+      <ion-row>
+          <ion-col col-6 *ngFor="let item of menuList1">
+              <img class="thumbImage" src="{{item.photo}}" >
+              <p class="margin-1">{{item.title}}</p>
+              <p class="menu-price">${{item.price}}</p>
+              <p class="menu-detail">{{item.description}}</p>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>

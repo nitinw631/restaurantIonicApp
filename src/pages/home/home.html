@@ -1,0 +1,78 @@
+
+
+<ion-content >
+  <div class="top-div">
+    <button ion-button menuToggle color="theme">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <img src="assets/img/gallery/9.jpg" class="header-image">
+    <div class="shadow"></div>
+  </div>
+  <h4 text-center class="store-title">Punjab Palace</h4>
+  <p text-center class="store-location">920 Rue Jean-Talon Ouest, Montreal</p>
+  <ion-segment [(ngModel)]="menuList" color="theme">
+    <ion-segment-button value="about">
+      About us
+    </ion-segment-button>
+    <ion-segment-button value="info">
+      Info
+    </ion-segment-button>
+    <ion-segment-button value="photo">
+      Photos
+    </ion-segment-button>
+  </ion-segment>
+  <div [ngSwitch]="menuList">
+    <ion-list *ngSwitchCase="'about'">
+      <ion-grid  color="theme">
+        <ion-row>
+          <ion-col >
+            <p>We have been one of Montreal's leading Indian restaurants since 1991. As a pioneer of Indian cuisine in the Jean Talon(Parc-Extension) area of Montreal, we have a long tradition of serving authentic Indian food the way it is enjoyed in Indian homes. Our convenient location borders Le Plateau Mont Royal, Outremont and TMR (Town of Mount Royal).</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'info'" class="margin-top-20">
+      <ion-item>
+        <h5>Type</h5>
+        <p>	Indian, Vegetarian</p>
+      </ion-item>
+      <ion-item>
+        <h5>Features</h5>
+        <p>	Bring your own Wine, Catering, <br>Group Functions, Private Dining,<br> Take Out</p>
+      </ion-item>
+      <ion-item>
+        <h5>Operating Hours</h5>
+        <p>	11:30am - 10:30pm (Mon - Sun)</p>
+        <p class="fontsize-9">Hours may change during holidays or special occasions. </p>
+        <p class="fontsize-9">Please contact the establishment for specific information.</p>
+      </ion-item>
+      <ion-item>
+        <h5>Neighbourhood</h5>
+        <p>Parc-Extension, Mont-Royal</p>
+      </ion-item>
+      <ion-item>
+        <h5>Payment</h5>
+        <p>Visa, MasterCard, Interac</p>
+      </ion-item>
+      <ion-item>
+        <h5>Price Range</h5>
+        <p>$$$ » Moderate (Between $10 to $20)</p>
+      </ion-item>
+      <ion-item>
+        <h5>Atmosphere/Attire</h5>
+        <p>Casual</p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'photo'">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6 *ngFor="let item of galleryList">
+            <img class="thumbImage" src="{{item.photo}}">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+  </div>
+</ion-content>
