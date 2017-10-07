@@ -13,7 +13,7 @@ import { ContactPage } from '../pages/contact/contact';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = MenuPage;
+  rootPage: any = ContactPage;
 
   pages: Array<{title: string, component: any}>;
 

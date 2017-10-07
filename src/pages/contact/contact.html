@@ -6,5 +6,102 @@
     <img src="assets/img/gallery/9.jpg" class="header-image">
     <div class="shadow"></div>
   </div>
-  <h3 text-center>Contact Us</h3>
+  <ion-segment [(ngModel)]="contactList" color="theme">
+    <ion-segment-button value="vipList">
+      Vip List
+    </ion-segment-button>
+    <ion-segment-button value="contactUs">
+      Contact Us
+    </ion-segment-button>
+  </ion-segment>
+  <div [ngSwitch]="contactList">
+    <ion-list *ngSwitchCase="'vipList'">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <h5 (click)="popOverPresent($event)">Vip List 
+                        <label style="float:right; font-size:14px;">
+                           <ion-icon name="information-circle"></ion-icon> info
+                        </label>
+                    </h5> 
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <p style="margin:2px;">WIN A DINNER FOR TWO</p>
+                <p style="font-size:11px; margin:2px;">
+                    Contest Rules : To participate in the Punjab Palace contest you will need to sign up as a Punjab Palace VIP Newsletter Member to receive our communications.
+                </p>
+                <p style="font-size:10px; margin:2px;">    * One winner will be drawn each month and notified by email.</p>
+            </ion-row>
+        </ion-grid>
+        <form  (ngSubmit)="submitForm();">
+            <ion-item>
+                <ion-label color="theme">First Name</ion-label>
+                <ion-input placeholder="Text Input" [(ngModel)]="vipForm.first" name="first" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="theme">Last Name</ion-label>
+                <ion-input placeholder="Text Input" [(ngModel)]="vipForm.last"  name="last" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="theme">Email</ion-label>
+                <ion-input type="email" placeholder="Email Input" [(ngModel)]="vipForm.email"   name="email" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="theme">Phone</ion-label>
+                <ion-input type="number" placeholder="Tel Input" [(ngModel)]="vipForm.phone"  name="phone" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="theme">Street</ion-label>
+                <ion-input type="text" placeholder="Address Input" [(ngModel)]="vipForm.street"  name="street" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="theme">City</ion-label>
+                <ion-input type="text" placeholder="Address Input" [(ngModel)]="vipForm.city"  name="city" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="theme">Postal</ion-label>
+                <ion-input type="text" placeholder="Address Input"  [(ngModel)]="vipForm.postal"  name="postal" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="theme">Province</ion-label>
+                <ion-input type="text" placeholder="Adress Input"  [(ngModel)]="vipForm.province" name="province" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label  color="theme">Date of Birth</ion-label>
+                <ion-datetime displayFormat="MM/DD/YYYY" placeholder="MM/DD/YYYY" [(ngModel)]="vipForm.dob" name="dob" required></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label  color="theme">Anniversary</ion-label>
+                <ion-datetime displayFormat="MM/DD" placeholder="MM/DD" [(ngModel)]="vipForm.anniversary" name="anniversary" required></ion-datetime>
+            </ion-item>
+            <button ion-button full color="theme" class="margin-5" type="submit">Submit</button>
+        </form>
+    </ion-list>
+    <ion-list *ngSwitchCase="'contactUs'">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <h4>Punjab Palace</h4> 
+                </ion-col>
+
+            </ion-row>
+            <ion-row>
+                <ion-col >
+                    <p>
+                        Phone : (514) 495-4075
+                    </p>
+                    <p>
+                        Email : hasmick@live.com
+                    </p>
+                    <p>
+                        920, rue Jean-Talon O<br>
+                        Montréal, QC<br>
+                        H3N 1S6
+                    </p>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-list>
+  </div>
 </ion-content>
